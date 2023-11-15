@@ -1,0 +1,20 @@
+version: '3'
+services:
+  backup:
+    build: .
+    volumes:
+      - ./scripts:/scripts
+      - ./cron:/etc/cron.d
+    environment:
+      - PGHOST=localhost
+      - PGPASSWORD=admin
+      - DB_USER=admin
+      - DB_NAME=core
+    stdin_open: true
+    tty: true
+    networks:
+      - es_net
+
+networks:
+  es_net:
+    external: true

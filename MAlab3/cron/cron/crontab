@@ -1,0 +1,2 @@
+# Запуск скрипта каждые 5 часов
+*/5 * * * * root /bin/bash /scripts/backup_script.sh

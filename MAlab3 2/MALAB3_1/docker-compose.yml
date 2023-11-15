@@ -1,0 +1,18 @@
+services:
+    order:
+        container_name: microservice2
+        image: microservice-service_2
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        restart: unless-stopped
+        ports:
+             - "7076:80"
+        networks:
+          - es_net
+        expose:
+             - "80"
+
+networks:
+  es_net:
+    external: true
